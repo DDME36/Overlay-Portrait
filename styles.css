@@ -277,7 +277,7 @@ body {
     left: 0;
     width: 200%;
     height: 200px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 200'%3E%3Cpath fill='rgba(201,162,39,0.15)' d='M0,100 Q270,50 540,100 T1080,100 L1080,200 L0,200 Z'/%3E%3Cpath fill='rgba(201,162,39,0.1)' d='M0,130 Q270,80 540,130 T1080,130 L1080,200 L0,200 Z'/%3E%3C/svg%3E");
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 200'%3E%3Cpath fill='rgba(128,128,128,0.2)' d='M0,100 Q270,50 540,100 T1080,100 L1080,200 L0,200 Z'/%3E%3Cpath fill='rgba(128,128,128,0.15)' d='M0,130 Q270,80 540,130 T1080,130 L1080,200 L0,200 Z'/%3E%3C/svg%3E");
     background-size: 50% 100%;
     background-repeat: repeat-x;
     pointer-events: none;
