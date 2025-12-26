@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>Stream Overlay - Portrait</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Sans+Thai:wght@400;500;600&family=Marcellus&family=Quicksand:wght@700&family=Nunito:wght@800;900&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="overlay-container">
+        <!-- Floating Particles Background -->
+        <div class="particles" id="particles"></div>
+        
+        <!-- Floating Clouds -->
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+
+        <!-- Top Section -->
+        <div class="top-section">
+            <!-- MightyBit Logo Top -->
+            <div class="mightybit-top">
+                <img src="mightybit.png" alt="MightyBit" class="mightybit-logo">
+                <div class="sand-particles" id="sand-particles"></div>
+            </div>
+        </div>
+
+        <!-- Main Video Frame (16:9 Center) -->
+        <div class="main-frame">
+            <div class="frame-corner top-left">
+                <svg viewBox="0 0 80 80">
+                    <path class="corner-line corner-line-1" d="M5,75 L5,25 Q5,5 25,5 L75,5"/>
+                    <path class="corner-line corner-line-2" d="M12,68 L12,28 Q12,12 28,12 L68,12"/>
+                </svg>
+            </div>
+            <div class="frame-corner top-right">
+                <svg viewBox="0 0 80 80">
+                    <path class="corner-line corner-line-1" d="M5,75 L5,25 Q5,5 25,5 L75,5"/>
+                    <path class="corner-line corner-line-2" d="M12,68 L12,28 Q12,12 28,12 L68,12"/>
+                </svg>
+            </div>
+            <div class="frame-corner bottom-left">
+                <svg viewBox="0 0 80 80">
+                    <path class="corner-line corner-line-1" d="M5,75 L5,25 Q5,5 25,5 L75,5"/>
+                    <path class="corner-line corner-line-2" d="M12,68 L12,28 Q12,12 28,12 L68,12"/>
+                </svg>
+            </div>
+            <div class="frame-corner bottom-right">
+                <svg viewBox="0 0 80 80">
+                    <path class="corner-line corner-line-1" d="M5,75 L5,25 Q5,5 25,5 L75,5"/>
+                    <path class="corner-line corner-line-2" d="M12,68 L12,28 Q12,12 28,12 L68,12"/>
+                </svg>
+            </div>
+            
+            <!-- Game Screen (16:9 Chroma Key) -->
+            <div class="game-screen"></div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <!-- Decorative Wave -->
+            <div class="bottom-wave"></div>
+        </div>
+
+        <!-- Floating Orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+
+        <!-- Sparkle Effects -->
+        <div class="sparkle-container" id="sparkles"></div>
+
+        <!-- Stars -->
+        <div class="stars-container" id="stars"></div>
+
+        <!-- Energy Trails -->
+        <svg class="energy-trails" viewBox="0 0 1080 1920">
+            <path class="trail trail-1" d="M0,400 Q300,350 540,400 T1080,400" />
+            <path class="trail trail-2" d="M1080,1500 Q780,1550 540,1500 T0,1500" />
+        </svg>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

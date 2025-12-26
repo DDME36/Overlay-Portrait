@@ -1,0 +1,479 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #4a6fa5;
+    --dark-blue: #1a2a4a;
+    --gold: #c9a227;
+    --gold-light: #f0d78c;
+    --ethereal-white: rgba(255, 255, 255, 0.8);
+    --glow-blue: rgba(100, 180, 255, 0.6);
+}
+
+body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: transparent;
+    font-family: 'Marcellus', 'Cinzel', serif;
+}
+
+.overlay-container {
+    position: relative;
+    width: 1080px;
+    height: 1920px;
+    background: linear-gradient(180deg, #1a3a5c 0%, #2d4a6a 50%, #1a3a5c 100%);
+}
+
+/* ========== PARTICLES ========== */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--ethereal-white);
+    border-radius: 50%;
+    animation: float-particle 8s ease-in-out infinite;
+    box-shadow: 0 0 10px var(--glow-blue), 0 0 20px var(--glow-blue);
+}
+
+@keyframes float-particle {
+    0%, 100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-50px) translateX(-10px) scale(0.8); opacity: 0.5; }
+}
+
+/* ========== CLOUDS ========== */
+.cloud {
+    position: absolute;
+    background: linear-gradient(180deg, rgba(150, 180, 210, 0.6) 0%, rgba(100, 140, 180, 0.3) 100%);
+    border-radius: 50%;
+    filter: blur(8px);
+    z-index: 2;
+}
+
+.cloud-1 {
+    width: 100px;
+    height: 50px;
+    top: 100px;
+    left: 50px;
+    animation: drift 20s ease-in-out infinite;
+}
+
+.cloud-2 {
+    width: 120px;
+    height: 60px;
+    bottom: 200px;
+    right: 50px;
+    animation: drift 25s ease-in-out infinite reverse;
+}
+
+@keyframes drift {
+    0%, 100% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(30px) translateY(-10px); }
+}
+
+
+/* ========== TOP SECTION ========== */
+.top-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 0px;
+    z-index: 10;
+}
+
+/* ========== LIVE BADGE ========== */
+.live-badge {
+    background: linear-gradient(180deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    padding: 15px 50px;
+    border: 3px solid var(--gold);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 0 25px rgba(201, 162, 39, 0.4);
+    margin-bottom: 30px;
+}
+
+.live-text {
+    font-family: 'Nunito', 'Poppins', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: #ff4444;
+    text-shadow: 0 0 10px #ff4444, 0 0 20px #ff6666;
+    animation: live-pulse 1.5s ease-in-out infinite;
+}
+
+.live-dot {
+    width: 14px;
+    height: 14px;
+    background: #ff4444;
+    border-radius: 50%;
+    animation: live-dot-blink 1s ease-in-out infinite;
+    box-shadow: 0 0 10px #ff4444;
+}
+
+@keyframes live-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.05); }
+}
+
+@keyframes live-dot-blink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* ========== MIGHTYBIT TOP ========== */
+.mightybit-top {
+    width: 250px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.mightybit-logo {
+    width: 200%;
+    height: auto;
+    animation: sand-reveal 10s ease-in-out infinite;  /* 10 วินาทีต่อ loop */
+}
+
+@keyframes sand-reveal {
+    0% { opacity: 0; filter: blur(5px); transform: scale(0.85); }      /* 0 วิ - หาย */
+    15% { opacity: 1; filter: blur(0); transform: scale(1); }          /* 1.5 วิ - โผล่เต็ม */
+    70% { opacity: 1; filter: blur(0); transform: scale(1); }          /* 7 วิ - ยังอยู่ */
+    100% { opacity: 0; filter: blur(5px); transform: scale(0.85); }    /* 10 วิ - หายหมด */
+}
+}
+
+.sand-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.sand-particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 2px var(--gold);
+}
+
+@keyframes sand-fly-in {
+    0% { opacity: 1; transform: translate(var(--start-x), var(--start-y)) scale(1); }      /* 0 วิ - particles อยู่ไกล */
+    15% { opacity: 0; transform: translate(0, 0) scale(0); }                                /* 1.5 วิ - บินเข้ามารวมกัน หาย */
+    65% { opacity: 0; transform: translate(0, 0) scale(0); }                                /* 6.5 วิ - ยังหาย */
+    70% { opacity: 1; transform: translate(0, 0) scale(1); }                                /* 7 วิ - โผล่ตรงกลาง พร้อม fade out รูป */
+    100% { opacity: 0; transform: translate(var(--start-x), var(--start-y)) scale(0); }    /* 10 วิ - กระจายออกไปหมด */
+}
+
+
+/* ========== MAIN FRAME (16:9 Video) ========== */
+.main-frame {
+    position: absolute;
+    top: 350px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1040px;
+    height: 605px;
+    border: 4px solid var(--gold);
+    border-radius: 15px;
+    background: rgba(20, 40, 70, 0.3);
+    box-shadow: 0 0 30px rgba(201, 162, 39, 0.3);
+    z-index: 10;
+}
+
+.frame-corner {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    z-index: 11;
+}
+
+.top-left { top: -5px; left: -5px; }
+.top-right { top: -5px; right: -5px; transform: scaleX(-1); }
+.bottom-left { bottom: -5px; left: -5px; transform: scaleY(-1); }
+.bottom-right { bottom: -5px; right: -5px; transform: scale(-1, -1); }
+
+.frame-corner svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.corner-line {
+    fill: none;
+    stroke-linecap: round;
+}
+
+.corner-line-1 {
+    stroke: var(--gold);
+    stroke-width: 3;
+    animation: corner-breathe 3s ease-in-out infinite;
+}
+
+.corner-line-2 {
+    stroke: var(--gold-light);
+    stroke-width: 2;
+    animation: corner-breathe 3s ease-in-out infinite 0.5s;
+}
+
+@keyframes corner-breathe {
+    0%, 100% { opacity: 1; filter: drop-shadow(0 0 4px var(--gold)); }
+    50% { opacity: 0.9; filter: drop-shadow(0 0 8px var(--gold)); }
+}
+
+/* ========== GAME SCREEN (16:9 Chroma Key) ========== */
+.game-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1024px;
+    height: 576px;
+    background: #00ff00;
+    border-radius: 8px;
+}
+
+
+/* ========== BOTTOM SECTION ========== */
+.bottom-section {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 880px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* ========== BOTTOM WAVE ========== */
+.bottom-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 200px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 200'%3E%3Cpath fill='rgba(201,162,39,0.15)' d='M0,100 Q270,50 540,100 T1080,100 L1080,200 L0,200 Z'/%3E%3Cpath fill='rgba(201,162,39,0.1)' d='M0,130 Q270,80 540,130 T1080,130 L1080,200 L0,200 Z'/%3E%3C/svg%3E");
+    background-size: 50% 100%;
+    background-repeat: repeat-x;
+    pointer-events: none;
+    animation: wave-flow 8s linear infinite;
+}
+
+@keyframes wave-flow {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ========== MASCOT ========== */
+.mascot {
+    position: relative;
+    width: 400px;
+    height: auto;
+}
+
+.mascot img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(100, 180, 255, 0.4));
+}
+
+/* ========== FLOATING ORBS ========== */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), var(--glow-blue), transparent);
+    box-shadow: 0 0 30px var(--glow-blue);
+    z-index: 5;
+    animation: orb-float 10s ease-in-out infinite;
+}
+
+.orb-1 {
+    width: 20px;
+    height: 20px;
+    top: 200px;
+    right: 80px;
+}
+
+.orb-2 {
+    width: 15px;
+    height: 15px;
+    top: 350px;
+    left: 60px;
+    animation-delay: 2s;
+}
+
+.orb-3 {
+    width: 18px;
+    height: 18px;
+    bottom: 400px;
+    right: 100px;
+    animation-delay: 4s;
+}
+
+.orb-4 {
+    width: 12px;
+    height: 12px;
+    bottom: 600px;
+    left: 80px;
+    animation-delay: 6s;
+}
+
+@keyframes orb-float {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+    50% { transform: translateY(-40px) scale(1.1); opacity: 1; }
+}
+
+/* ========== SPARKLE EFFECTS ========== */
+.sparkle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 6;
+}
+
+.sparkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: sparkle-twinkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle-twinkle {
+    0%, 100% { transform: scale(0) rotate(0deg); opacity: 0; }
+    50% { transform: scale(1) rotate(180deg); opacity: 1; }
+}
+
+
+/* ========== ENERGY TRAILS ========== */
+.energy-trails {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.trail {
+    fill: none;
+    stroke: var(--glow-blue);
+    stroke-width: 2;
+    stroke-linecap: round;
+    opacity: 0.4;
+    filter: blur(2px);
+}
+
+.trail-1 {
+    stroke-dasharray: 20 30;
+    animation: trail-flow 12s linear infinite;
+}
+
+.trail-2 {
+    stroke-dasharray: 15 25;
+    animation: trail-flow 10s linear infinite reverse;
+}
+
+@keyframes trail-flow {
+    0% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -500; }
+}
+
+/* ========== STARS ========== */
+.stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: star-twinkle 3s ease-in-out infinite;
+}
+
+@keyframes star-twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.3); }
+}
+
+/* ========== TOP WAVE ========== */
+.top-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 150px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 150'%3E%3Cpath fill='rgba(201,162,39,0.12)' d='M0,150 L0,80 Q270,30 540,80 T1080,80 L1080,150 Z'/%3E%3Cpath fill='rgba(201,162,39,0.08)' d='M0,150 L0,100 Q270,60 540,100 T1080,100 L1080,150 Z'/%3E%3C/svg%3E");
+    background-size: 50% 100%;
+    background-repeat: repeat-x;
+    pointer-events: none;
+    z-index: 4;
+    animation: wave-flow-reverse 10s linear infinite;
+}
+
+@keyframes wave-flow-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+/* ========== GRADIENT SHIMMER ========== */
+.shimmer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.03) 50%,
+        transparent 60%
+    );
+    background-size: 200% 200%;
+    animation: shimmer-move 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@keyframes shimmer-move {
+    0% { background-position: 200% 200%; }
+    100% { background-position: -200% -200%; }
+}
